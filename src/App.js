@@ -9,7 +9,7 @@ import { theme, ThemeProvider } from "@chakra-ui/core"
 function App() {
   return (
     <div className="App">
-      <LoginForm />
+      <RegistrationForm />
     </div>
   );
 }

@@ -18,12 +18,12 @@ function RegistrationForm() {
 
     const validationSchema = Yup.object({
         email: Yup.string().email('Invalid email format').required('Required'),
-        password: Yup.string().required('Required'),
+        password: Yup.string().required('Required').min(8,'Password must be atlease 8 characters long'),
         confirmPassword: Yup.string().oneOf([Yup.ref('password'), ''], 'Passwords do not match').required('Required'),
         modeOfContact: Yup.string().required('Required'),
-        phone: Yup.string().when('modeOfContact', {
+        phone: Yup.string().min(10,'Phone Number must be 10 digits').max(10,'Phone Number must be 10 digits').when('modeOfContact', {
             is: 'telephonemoc',
-            then: Yup.string().required('Required')
+            then: Yup.string().required('Required').min(10,'Phone Number must be 10 digits').max(10,'Phone Number must be 10 digits')
         })
     })
 
