@@ -2,6 +2,7 @@ import React from 'react'
 import { Formik, Form } from 'formik'
 import * as Yup from 'yup'
 import FormikControl from './FormikControl'
+import './RegistrationForm.css'
 
 function RegistrationForm() {
     const options = [
@@ -9,7 +10,7 @@ function RegistrationForm() {
         {key: 'Telephone', value: 'telephonemoc'}
     ]
     const initialValues = {
-        email: '',
+        email: 'b@gmail.com',
         password: '',
         confirmPassword: '',
         modeOfContact: '',
@@ -27,8 +28,9 @@ function RegistrationForm() {
         })
     })
 
-    const onSubmit = values => {
+    const onSubmit = (values, {resetForm}) => {
         console.log('Form values', values)
+        resetForm({values:''});
     }
 
     return (
@@ -41,6 +43,7 @@ function RegistrationForm() {
                         type='email'
                         label='Email'
                         name='email'
+                        readOnly = {true}
                         />
                         
                         <FormikControl 
@@ -71,7 +74,8 @@ function RegistrationForm() {
                         name='phone'
                         />
 
-                        <button type='submit' disabled={!formik.isValid}>Submit</button>
+                        <button className='btn-submit' type='submit' disabled={!formik.isValid}>Submit</button>
+                        <button className='btn-clear' type='reset'>Clear</button>
                     </Form>
                 }
             }
