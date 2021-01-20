@@ -6,11 +6,12 @@ import RegistrationForm from './components/RegistrationForm';
 import EnrollmentForm from './components/EnrollmentForm';
 import { theme, ThemeProvider } from "@chakra-ui/core"
 import ModalExample from './components/ModalExample'
+import SimpleText from './components/antdFunctionality/SimpleText'
 
 function App() {
   return (
     <div className="App">
-      <ModalExample />
+      <EnrollmentForm />
     </div>
   );
 }

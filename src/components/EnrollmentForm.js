@@ -32,8 +32,8 @@ function EnrollmentForm() {
         courseDate: Yup.date().required('Required').nullable()
     })
 
-    const onSubmit = values => {
-        console.log('Form values', values)
+    const onSubmit = bioData => {
+        console.log('Form values', bioData)
     }
     return (
         <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit}>
